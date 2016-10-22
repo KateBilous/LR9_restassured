@@ -30,7 +30,7 @@ public class MyIssue {
 
 
 
-    @BeforeTest
+    @Test(groups = {"Issue", "Search", "Comment"})
     public void login() {
 
         RequestSender requestSender= new RequestSender();
@@ -46,7 +46,7 @@ public class MyIssue {
 
     }
 
-    @Test
+    @Test(groups = {"Issue"}, dependsOnMethods = {"login"})
     public void DeleteIssue() {
         long id = Thread.currentThread().getId();
         System.out.println("DeleteIssue. Thread id is: " + id);
@@ -76,13 +76,10 @@ public class MyIssue {
 
     }
 
-    @Test
+    @Test (groups = {"Issue"}, dependsOnMethods = {"login"})
     public void CreateIssue() {
         long id = Thread.currentThread().getId();
         System.out.println("CreateIssue. Thread id is: " + id);
-
-
-
 
         String issue = jiraJSONFixture.generateJSONForSampleIssue();
 
@@ -101,14 +98,10 @@ public class MyIssue {
 
 
     }
-    @Test
+    @Test (groups = {"Issue"}, dependsOnMethods = {"login"})
     public void getIssue(){
         long id = Thread.currentThread().getId();
         System.out.println("getIssue. Thread id is: " + id);
-
-
-
-
 
         String issue = jiraJSONFixture.generateJSONForSampleIssue();
         // создание Issue
@@ -133,13 +126,10 @@ public class MyIssue {
         assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
 
-
-
-
     }
 
 
-    @Test(enabled = false)
+    @Test(enabled = false, groups = {"Issue"}, dependsOnMethods = {"login"})
     public void editSummary() {
         long id = Thread.currentThread().getId();
         System.out.println("editSummary. Thread id is: " + id);
@@ -172,13 +162,8 @@ public class MyIssue {
         assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
 
-
-
-
-
-
     }
-    @Test(enabled = false)
+    @Test(enabled = false, dependsOnMethods = {"login"}, groups = {"Issue"})
     public void changeIssueType(){
         long id = Thread.currentThread().getId();
         System.out.println("changeIssueType. Thread id is: " + id);
@@ -218,7 +203,7 @@ public class MyIssue {
 
 
     }
-    @Test
+    @Test(groups = {"Search"}, dependsOnMethods = {"login"})
     public void searchFilter()
     {  long id = Thread.currentThread().getId();
         System.out.println("searchFilter. Thread id is: " + id);
@@ -248,7 +233,7 @@ public class MyIssue {
        // assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
     }
-    @Test(enabled = false)
+    @Test(enabled = false, dependsOnMethods = {"login"}, groups = {""})
     public void Assign ()
             // create issue
 
@@ -284,7 +269,7 @@ public class MyIssue {
 
     }
 
-    @Test
+    @Test(groups = {"Comment"}, dependsOnMethods = {"login"})
     public void  addComment(){
 
         long id = Thread.currentThread().getId();
@@ -316,16 +301,7 @@ public class MyIssue {
     }
 
 
-
-
-
-
-
-
-
-
-
-        @Test
+        @Test (groups = {"Comment"})
         public  void deleteComment(){
 
             long id = Thread.currentThread().getId();

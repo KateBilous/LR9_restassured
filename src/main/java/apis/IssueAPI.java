@@ -26,7 +26,7 @@ public class IssueAPI   {
 
 
     public Response deleteIssue(String issueId) {
-        requestSender =new RequestSender();
+        requestSender = new RequestSender();
         requestSender
                 .voidCreateRequest()
                 .delete(ApiUrls.ISSUE.getUri(issueId));
@@ -34,7 +34,7 @@ public class IssueAPI   {
 
     }
     public  Response secureDeleteIssue(String issueId){
-        requestSender =new RequestSender();
+        requestSender = new RequestSender();
         requestSender
                 .secureCreateRequest()
                 .delete(ApiUrls.ISSUE.getUri(issueId));
@@ -42,7 +42,7 @@ public class IssueAPI   {
     }
 
     public Response secureAddComment(String issueId, String body) {
-        requestSender =new RequestSender();
+        requestSender = new RequestSender();
         requestSender
                 .secureCreateRequest(body)
                 .post(ApiUrls.ISSUE.getUri() + "/" + issueId + "/comment");
