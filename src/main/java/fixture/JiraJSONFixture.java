@@ -1,10 +1,7 @@
 package fixture;
 
-import entities.Comment;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-import java.util.HashMap;
 
 
 public class JiraJSONFixture {
@@ -71,9 +68,9 @@ public class JiraJSONFixture {
         JSONObject credentials=new JSONObject();
         JSONArray array=new JSONArray();
 
-        credentials.put("jql", " project = TEST");
+        credentials.put("jql", " project = QAAutomation2");
         credentials.put("startAt","0");
-        credentials.put("maxResults", " 15");
+        credentials.put("maxResults", " 1000");
         array.add("summary");
         array.add( "key");
 

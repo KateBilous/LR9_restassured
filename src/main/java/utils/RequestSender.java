@@ -17,11 +17,11 @@ public class RequestSender {
     public   RequestSpecification requestSpecification = null;
     public    Response response = null;
 
-    public RequestSender() {
-        authenticate();
-    }
-
-
+//    public RequestSender() {
+//        authenticate();
+//    }
+//
+//
     public void authenticate() {
         RestAssured.baseURI = "http://soft.it-hillel.com.ua:8080/";
 
