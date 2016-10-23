@@ -212,6 +212,7 @@ public class MyIssue {
         assertTrue(deleteIssueResponse.contentType().contains(ContentType.JSON.toString()));
 
 
+
     }
 
     @Test(groups = {"Search"}, dependsOnMethods = {"login"})
